@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>NewScrapper</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Coda+Caption:800|Kavoon" rel="stylesheet">
+  <style>
+    body {
+      background-image: url(assets/images/background.jpg);
+    }
+
+    #wrapper {
+      width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 5%;
+    }
+
+    #articles {
+      display: inline-block;
+      overflow: auto;
+      width: 60%;
+      height: 700px;
+    }
+
+    #notes {
+      float: right;
+      width: 30%;
+    }
+
+    textarea,
+    input {
+      display: block;
+      width: 100%;
+      background-color: #FCF5C7;
+    }
+
+    input {
+      height: 36px;
+      font-size: 24px;
+    }
+
+    textarea {
+      height: 200px;
+      font-size: 18px;
+    }
+
+
+    .nav-wrapper {
+      background-color: black;
+    }
+
+    .scrape {
+      background-color: #FFC300;
+    }
+
+    .scrape:hover {
+      background-color: #00BBFF;
+    }
+
+    .link:hover {
+      background-color: #FFC300;
+      color: black
+    }
+
+    img {
+      height: 50px;
+      width: auto;
+      margin: 5px;
+    }
+
+    .section{
+      background-color:rgb( 97, 106, 107 ,.5);
+      color: #FFC300;
+      font-family: 'Coda Caption', sans-serif;
+      padding: 2rem;
+      text-align: center;
+      text-shadow: 4px 4px black; 
+    }
+
+    h3{
+      font-family: 'Kavoon', cursive;
+    }
+  
+
+  </style>
+</head>
+
+<body>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper ">
+        <a href="/" class="brand-logo material-icons">
+
+          <img src="assets/images/newsIcon.png">
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li class "link">
+            <a class="waves-effect waves-light btn scrape" href="/">Home</a>
+          </li>
+          <li class "link">
+            <a class="waves-effect waves-light btn scrape" href="/articles">Saved Articles</a>
+          </li>
+          <li class "link">
+            <strong>
+              <a class="waves-effect waves-light btn scrape">Scrappe for Good News</a>
+            </strong>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div id="wrapper">
+    <div class="section index-banner banner-home row top-page">
+      <h1>Good News Scrapper</h1>
+      <h3>
+        <i>Top Trending Good News</i>
+      </h3>
+    </div>
+    
+    <div id="articles"></div>
+    <div id="notes"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
