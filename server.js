@@ -12,14 +12,14 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 // Initialize Express
 var app = express();
 
 // Configure middleware
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/news";
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
@@ -46,7 +46,7 @@ app.get("/scrape", function (req, res) {
     console.log("test4");
 
     // Now, we grab every h2 within an article tag, and do the following:
-    $("li", "article").each(function (i, element) {
+    $("article").each(function (i, element) {
 
 
       // Save an empty result object
@@ -62,9 +62,9 @@ app.get("/scrape", function (req, res) {
       result.image = $(this).find(".wide-thumb")
         .children("img")
         .attr("src");
-      result.date = $(this).find("story-footer")
+     /* result.date = $(this).find(".story-footer")
         .children("time")
-        .attr("#datetime");
+        .attr("datetime").toString();*/
 
       console.log(result);
 
@@ -72,7 +72,9 @@ app.get("/scrape", function (req, res) {
       db.Article.create(result)
         .then(function (dbArticle) {
           // View the added result in the console
+          console.log("test5");
           console.log(dbArticle);
+          res.send("Scrape Complete");
         })
         .catch(function (err) {
           // If an error occurred, send it to the client
@@ -81,7 +83,7 @@ app.get("/scrape", function (req, res) {
     });
 
     // If we were able to successfully scrape and save an Article, send a message to the client
-    res.send("Scrape Complete");
+  //  res.send("Scrape Complete");
   });
 });
 

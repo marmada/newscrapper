@@ -72,20 +72,18 @@
       margin: 5px;
     }
 
-    .section{
-      background-color:rgb( 97, 106, 107 ,.5);
+    .section {
+      background-color: rgb( 97, 106, 107, .5);
       color: #FFC300;
       font-family: 'Coda Caption', sans-serif;
       padding: 2rem;
       text-align: center;
-      text-shadow: 4px 4px black; 
+      text-shadow: 4px 4px black;
     }
 
-    h3{
+    h3 {
       font-family: 'Kavoon', cursive;
     }
-  
-
   </style>
 </head>
 
@@ -120,8 +118,13 @@
         <i>Top Trending Good News</i>
       </h3>
     </div>
-    
-    <div id="articles"></div>
+
+    <div id="article-feed">
+      <ul class="collection" id="articles"></ul>
+    </div>
+    <div id='notes'>
+        
+    </div>
 
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
