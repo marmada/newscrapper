@@ -1,3 +1,26 @@
+$(document).on("click", "#scrape", function() {
+  console.log("test1");
+
+  $.ajax({
+    method: "GET",
+    url: "/scrape"
+  }).done(function(scrape) {
+    console.log(scrape);
+    $.ajax({
+      method: "GET",
+      url: "/articles"
+    }).done(function(data) {
+      console.log("test3");
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        var article = "<li data-id='" + data[i]._id + "'>" + data[i].title + "<br><span class='link'>" + data[i].link + "</span></li><br>";
+        console.log(article);
+        $("#article-feed").append(article);
+      }
+    })
+  })
+});
+
 // Grab the articles as a json
 $.getJSON("/articles", function(data) {
   // For each one
