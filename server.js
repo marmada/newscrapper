@@ -62,9 +62,7 @@ app.get("/scrape", function (req, res) {
       result.image = $(this).find(".wide-thumb")
         .children("img")
         .attr("src");
-     /* result.date = $(this).find(".story-footer")
-        .children("time")
-        .attr("datetime").toString();*/
+    
 
       console.log(result);
 

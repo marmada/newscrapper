@@ -23,8 +23,8 @@ var ArticleSchema = new Schema({
   image:{
     type:String
   },
-  date:{
-    type: String
+  note:{
+    type:String
   }
 
 
